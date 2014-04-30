@@ -1,0 +1,26 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+ body{
+ 	background-image:url("chessbg.jpg");
+ 	background-repeat:no-repeat;
+ 	background-position:right bottom;
+ 	background-attachment:fixed;
+ }
+
+ footer{
+ 	color: #4caece;
+ 	position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+ }
+
+ div.transparent{
+   padding: 10px;
+   background: rgb(255, 255, 255); // Fallback 
+   background: rgba(255, 255, 255, 0.75);
+ }
+ */

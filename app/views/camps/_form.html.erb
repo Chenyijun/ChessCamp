@@ -9,6 +9,8 @@
         <%= f.input :start_date, as: :date, order: [:month, :day, :year], include_blank: true, start_year: Date.today.year - 1, end_year: Date.today.year + 1 %>
         <%= f.input :end_date, as: :date, order: [:month, :day, :year], include_blank: true, start_year: Date.today.year - 1, end_year: Date.today.year + 1 %>
         <%= f.input :time_slot, collection: [['Morning','am'],['Afternoon','pm']], prompt: "Select time..." %>
+        <%= f.collection_select :location_id, Location.active.alphabetical, :id, :name %>
+        <%#= f.input :location_id, label: "", collection: Location.active.alphabetical, as: :select_boxes %>
         <%= f.input :active %>
       </div>
       <div class="small-1 columns">&nbsp;</div>

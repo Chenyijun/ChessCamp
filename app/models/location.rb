@@ -19,7 +19,7 @@ class Location < ActiveRecord::Base
 
   # callbacks
   before_destroy :verify_that_never_used_for_camps
-  before_validation :get_location_coordinates
+  #before_validation :get_location_coordinates
 
   private
   def verify_that_never_used_for_camps

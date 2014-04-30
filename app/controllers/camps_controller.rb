@@ -46,6 +46,6 @@ class CampsController < ApplicationController
     end
 
     def camp_params
-      params.require(:camp).permit(:curriculum_id, :cost, :start_date, :end_date, :time_slot, :max_students, :active, :instructor_ids => [])
+      params.require(:camp).permit(:curriculum_id, :cost, :start_date, :end_date, :time_slot, :max_students, :location_id, :active, :instructor_ids => [], :location_ids => [])
     end
 end

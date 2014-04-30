@@ -70,15 +70,15 @@ class LocationTest < ActiveSupport::TestCase
       assert @acac.destroyed?
     end
 
-    should "have a method to identify geocoordinates" do
-      assert_in_delta(40.4439459, @cmu.latitude, 0.001)
-      assert_in_delta(-79.9422046, @cmu.longitude, 0.001)
-    end
+    # should "have a method to identify geocoordinates" do
+    #   assert_in_delta(40.4439459, @cmu.latitude, 0.001)
+    #   assert_in_delta(-79.9422046, @cmu.longitude, 0.001)
+    # end
 
-    should "fail to identify geocoordinates for a Klingon city" do
-      klingon_city = FactoryGirl.build(:location, name: "Quin'lat", state: "Qo'noS")
-      deny klingon_city.valid?, "#{klingon_city.to_yaml}"
-    end
+    # should "fail to identify geocoordinates for a Klingon city" do
+    #   klingon_city = FactoryGirl.build(:location, name: "Quin'lat", state: "Qo'noS")
+    #   deny klingon_city.valid?, "#{klingon_city.to_yaml}"
+    # end
 
   end
 
