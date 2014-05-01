@@ -1,0 +1,11 @@
+<% unless @location_camps.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5>Camps at this location</h5>
+    <ul class="side-nav">
+      <% @location_camps.each do |camp| %>
+        <li><%= link_to camp.name, camp_path(camp) %> (<%= camp.start_date.strftime('%m/%d/%y') %>)</li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

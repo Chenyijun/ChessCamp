@@ -1,0 +1,11 @@
+<% unless @inactive_locations.empty? %>
+  <h3>&nbsp;</h3>
+  <div class="panel clearfix">
+    <h5>Inactive Locations</h5>
+    <ul class="side-nav">
+      <% @inactive_locations.each do |loc| %>
+        <li><%= link_to loc.name, instructor_path(loc) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

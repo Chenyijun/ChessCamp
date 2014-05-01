@@ -1,0 +1,36 @@
+<h3>Location Details</h3><br />
+<strong>Name:&nbsp;&nbsp;</strong> 
+  <%= @location.name %><br /><br />
+
+<strong>Address:&nbsp;&nbsp;</strong> <br />
+  <%= @location.street_1 %><br />
+  <% if @location.street_2.nil? == false %> 
+  	<%= @location.street_2 %> <br/> %>
+  <% end %>
+  <%= "#{@location.city}, #{@location.state}  #{@location.zip}"%> <br /><br />
+
+<strong>Map&nbsp;&nbsp;</strong>
+<%= image_tag @location.create_map_link %> <br /> <br />
+
+<!-- <strong>Street 2:&nbsp;&nbsp;</strong> 
+  <%= @location.street_2.nil? ? "N/A" : @location.street_2 %><br /><br />
+ 
+<strong>City:&nbsp;&nbsp;</strong> 
+  <%= @location.city %><br /><br />
+
+<strong>State:&nbsp;&nbsp;</strong> 
+  <%= @location.state %><br /><br />
+
+<strong>Zip:&nbsp;&nbsp;</strong> 
+  <%= @location.zip %><br /><br /> -->
+
+<strong>Maximum Capacity:&nbsp;&nbsp;</strong> 
+  <%= @location.max_capacity %><br /><br />
+
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @location.active ? "Yes" : "No" %><br /><br />
+
+
+
+<%= link_to "Edit this location", edit_location_path(@location), class: "button tiny radius" %>&nbsp;&nbsp;
+<%= link_to 'Destroy location', location_path(@location), data: { confirm: 'Are you sure you want to permanently remove this location from the system?' }, method: :delete, class: "button tiny radius alert" %>
