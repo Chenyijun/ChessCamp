@@ -41,6 +41,10 @@ before_filter :login_required, :except => [:new, :create]
     end
 
 	def user_params
-		params.require(:user).permit(:username, :instructor_id, :role, :active, :password, :password_confirmation)
+		if current_user && current_user.role?(:admin)
+			params.require(:user).permit(:username, :instructor_id, :role, :active, :password, :password_confirmation)
+		else
+			params.require(:user).permit(:username, :instructor_id, :active, :password, :password_confirmation)
+		end
 	end
 end

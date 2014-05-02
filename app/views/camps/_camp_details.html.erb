@@ -2,6 +2,13 @@
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= link_to @camp.name, curriculum_path(@camp.curriculum) %><br /><br />
 
+<strong>Rating:&nbsp;&nbsp;</strong> 
+
+<% if can? :update, camp %>
+<strong>Registrations:&nbsp;&nbsp;</strong> 
+<%= @camp.registrations.size %><br /><br />
+<% end %>
+
 <strong>Cost:&nbsp;&nbsp;</strong> 
   <%= number_to_currency(@camp.cost) %><br /><br />
 
