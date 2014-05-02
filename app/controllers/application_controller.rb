@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  include DateFormatter
   # rescue_from CanCan::AccessDenied do |exception|
   #   flash[:error] = "You do not have access to this page. :("
   #   redirect_to home_path
