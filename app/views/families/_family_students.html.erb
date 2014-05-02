@@ -1,0 +1,16 @@
+<% unless @students.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5>Students:</h5>
+    <ul class="side-nav">
+      <% @students.each do |student| %>
+        <li><%= link_to "#{student.name}", student_path(student) %></li>
+      <% end %>
+    </ul>
+  </div>
+
+<% else %>
+  <div class="panel clearfix">
+    <h5>CStudent has not been used</h5>
+  </div>
+<% end %>

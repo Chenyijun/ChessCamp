@@ -43,6 +43,13 @@
             </ul>
           </li>
 
+          <li class="has-dropdown">
+            <%= link_to "Families", families_path %>
+            <ul class="dropdown">
+              <li><%= link_to "List Families", families_path %></li>
+              <li><%= link_to "Add a Family", new_family_path %></li>
+            </ul>
+          </li>
 <!--           <li class="has-dropdown">
             <%= link_to "Users", users_path %>
             <ul class="dropdown">
