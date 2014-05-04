@@ -16,7 +16,7 @@
         <legend>User</legend>
           <div id="users">
             <%= f.simple_fields_for :user do |u| %>
-              <%#= u.link_to_remove("x") %> <br />
+              <%#= u.link_to_remove("x") %>
               <%= u.label :username, "Username" %><br />
               <%= u.text_field :username %>
               <%= u.label :password %><br />
@@ -27,7 +27,10 @@
               <%= u.select :role, User::ROLES, :prompt => "Select ..." %>
             <% end %> 
             <p>
-              <br /><%#= f.link_to_add("Add User", :user, :class => 'button tiny') %>
+              <br />
+<!--               <% if @instructor.user ==nil %>
+              <%= f.link_to_add("Add User", :user, :class => 'button tiny') %>
+              <% end %> -->
             </p>
           </div> 
         </div>

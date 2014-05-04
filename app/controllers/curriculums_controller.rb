@@ -1,6 +1,8 @@
 class CurriculumsController < ApplicationController
   before_action :set_curriculum, only: [:show, :edit, :update, :destroy]
   before_action :check_login
+  authorize_resource 
+  skip_authorize_resource only: [:index, :show, :read]
   
   def index
     @active_curriculums = Curriculum.active.alphabetical.paginate(:page => params[:page]).per_page(10)

@@ -1,7 +1,8 @@
 class LocationsController < ApplicationController
 	before_action :set_location, only: [:show, :edit, :update, :destroy]
   before_action :check_login
-  
+  authorize_resource 
+  skip_authorize_resource only: [:read]
   def edit
   end
 
@@ -15,6 +16,7 @@ class LocationsController < ApplicationController
   end
 
    def create
+
     @location = Location.new(location_params)
     if @location.save
       redirect_to @location, notice: "#{@location.name} location was added to the system."

@@ -2,6 +2,9 @@
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @instructor.proper_name %><br /><br />
 
+<strong>Username:&nbsp;&nbsp;</strong>
+	<%= @user.username %><br /><br />
+
 <strong>Phone:&nbsp;&nbsp;</strong> 
   <%= number_to_phone(@instructor.phone) %><br /><br />
 
@@ -9,7 +12,9 @@
   <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
 
 <strong>Role:&nbsp;&nbsp;</strong>
+<% if  !@instructor.user.nil? %>
 <%= @instructor.user.role %><br /><br />
+<% end %>
 
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @instructor.active ? "Yes" : "No" %><br /><br />

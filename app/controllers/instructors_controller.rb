@@ -11,14 +11,20 @@ class InstructorsController < ApplicationController
   def show
     @upcoming_camps = @instructor.camps.upcoming.chronological
     @past_camps = @instructor.camps.past.chronological
+    @user= @instructor.user
   end
 
   def new
+    authorize! :new, @instructor
     @instructor = Instructor.new
     user = @instructor.build_user
   end
 
   def edit
+    authorize! :update, @instructor
+    if @instructor.user.nil?
+      user = @instructor.build_user
+    end
     # reformating the phone so it has dashes when displayed for editing (personal taste)
     @instructor.phone = number_to_phone(@instructor.phone)
   end
@@ -33,6 +39,10 @@ class InstructorsController < ApplicationController
   end
 
   def update
+    authorize! :update, @instructor
+    if @instructor.user.nil?
+      user = @instructor.build_user
+    end
     if @instructor.update(instructor_params)
       redirect_to @instructor, notice: "#{@instructor.proper_name} was revised in the system."
     else

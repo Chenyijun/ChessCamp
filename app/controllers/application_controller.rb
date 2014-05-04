@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   include DateFormatter
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "You do not have access to this page. :("
+    flash[:error] = "You are not authorized to take this action"
     redirect_to home_path
   end
 

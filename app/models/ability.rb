@@ -13,62 +13,71 @@ class Ability
     elsif user.role? :instructor
       #records points earned
 
-      # can see a list of all students
-      can :index, Student
+      # can see a list of their students
+      can :read, Camp do |c|
+      #   reg = registrations.select{|r| r.id == c.id}.map{|r| r.student_id}
+        c.id == user.instructor.camps.registrations.camp_id
+      end
       #can see location details
+      #can :read, Location
 
       #can see camps and curriculums they are assigned to
-      can :read, Camp do |camp|  
-        camps = user.camps.map{|p| p.camp.map(&:id)}.flatten
-        camps.include?(camp.id) 
-      end
+      # can :read, Camp do |c|  
+      #   c.id == c.curriculum_id
+      #   # camps = user.camps.map{|p| p.camp.map(&:id)}.flatten
+      #   # camps.include?(camp.id) 
+      # end
 
 
       # they can read their own profile
-      can :show, Instructor do |i|  
-        i.id == instructor.id
-      end
+      # can :read, Instructor do |i|  
+      #   i.id == user.instructor_id
+      # end
       # they can update their own profile
       can :update, Instructor do |i|  
-        i.id == instructor.id
+        i.id == user.instructor_id
       end
       
       # they can read their own projects' data
-      can :read, Project do |this_project|  
-        my_projects = user.projects.map(&:id)
-        my_projects.include? this_project.id 
-      end
+      # can :read, Project do |this_project|  
+      #   my_projects = user.projects.map(&:id)
+      #   my_projects.include? this_project.id 
+      # end
       # they can create new projects for themselves
-      can :create, Project
+      # can :create, Project
       
-      # they can update the project only if they are the manager (creator)
-      can :update, Project do |this_project|
-        managed_projects = user.projects.map{|p| p.id if p.manager_id == user.id}
-        managed_projects.include? this_project.id
-      end
+      # # they can update the project only if they are the manager (creator)
+      # can :update, Project do |this_project|
+      #   managed_projects = user.projects.map{|p| p.id if p.manager_id == user.id}
+      #   managed_projects.include? this_project.id
+      # end
             
-      # they can read tasks in these projects
-      can :read, Task do |this_task|  
-        project_tasks = user.projects.map{|p| p.tasks.map(&:id)}.flatten
-        project_tasks.include? this_task.id 
-      end
+      # # they can read tasks in these projects
+      # can :read, Task do |this_task|  
+      #   project_tasks = user.projects.map{|p| p.tasks.map(&:id)}.flatten
+      #   project_tasks.include? this_task.id 
+      # end
       
-      # they can update tasks in these projects
-      can :update, Task do |this_task|  
-        project_tasks = user.projects.map{|p| p.tasks.map(&:id)}.flatten
-        project_tasks.include? this_task.id 
-      end
+      # # they can update tasks in these projects
+      # can :update, Task do |this_task|  
+      #   project_tasks = user.projects.map{|p| p.tasks.map(&:id)}.flatten
+      #   project_tasks.include? this_task.id 
+      # end
       
-      # they can create new tasks for these projects
-      can :create, Task do |this_task|  
-        my_projects = user.projects.map(&:id)
-        my_projects.include? this_task.project_id  
-      end
+      # # they can create new tasks for these projects
+      # can :create, Task do |this_task|  
+      #   my_projects = user.projects.map(&:id)
+      #   my_projects.include? this_task.project_id  
+      # end
 
     else
       # guests can only read domains covered (plus home pages)
       #guests can see list of camps, view camp details, view instructor details, view location details
       can :read, Domain
+      # can :read, Camp
+      # can :read, Instructor
+      # can :read, Location
+      can :read, All
     end
   end
     #

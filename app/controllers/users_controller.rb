@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 before_filter :login_required, :except => [:new, :create]
+authorize_resource
 
 	def new
 		@user = User.new

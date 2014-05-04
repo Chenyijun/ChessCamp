@@ -70,6 +70,7 @@ Feature: Manage instructors
     And I fill in "instructor_phone" with "(412) 268-3228"
     And I fill in "instructor_email" with "gruberman@example.com"
     And I fill in "instructor_bio" with "A pretty poor player overall"
+    Then show me the page
     And I press "Create Instructor"
     Then I should see "Ed Gruberman was added to the system"
     And I should see "Ed Gruberman"
