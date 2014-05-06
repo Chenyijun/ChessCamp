@@ -7,9 +7,11 @@
     <% if logged_in? %>
     <%= render :partial => "camps", locals: { status: "Past", camps: @past_camps } %>
     <br />
-    <%# if can? :update, camp %>
-    <%= link_to "Add a new camp", new_camp_path, class: "button tiny radius" %>
-    <%# end %>
+    <% if logged_in? %>
+      <% if current_user.role == 'admin' %>
+       <%= link_to "Add a new camp", new_camp_path, class: "button tiny radius" %>
+      <% end %>
+    <% end %>
     <% end %>
   </div>
   <% if logged_in? %>

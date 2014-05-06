@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   	@camps = Camp.upcoming.active.chronological.paginate(:page => params[:page]).per_page(10)
     if current_user && !current_user.instructor.nil?
       @userCamps = current_user.instructor.camps.paginate(:page => params[:page]).per_page(10)
+      @userInstructor = current_user.instructor
     end
   	# usercamps = current_user.instructor.camps.map{|c| c }.flatten
   	# @ucamps = usercamps.upcoming.active.chronological.paginate(:page => params[:page]).per_page(10)

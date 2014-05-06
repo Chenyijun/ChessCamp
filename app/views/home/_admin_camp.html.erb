@@ -15,10 +15,9 @@
     <td align="center"><%= camp.registrations.size %></td>
     <td align="center">
       <% camp.instructors.each do |i| %>
-      <%= link_to i.name, instructor_path(i) %>
+      <%= link_to i.name, instructor_path(i) %><br />
       <% end %> </td>
     <td></td>
-    <td><%= link_to 'Edit', edit_camp_path(camp), class: "button tiny radius" %></td>
   </tr>
 <% end %>
 </table>

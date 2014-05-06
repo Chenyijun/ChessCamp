@@ -75,18 +75,23 @@
               </ul>
             </li>
             <% end %>
-
-          <% else %>
             <li class="has-dropdown">
-              <%= link_to "Camps", camps_path %>
-              <ul class="dropdown">
-                <li><%= link_to "List Camps", camps_path %></li>
-              </ul>
-            </li>
+            <%= link_to "Students", students_path %>
+            <ul class="dropdown">
+              <li><%= link_to "List Students", students_path %></li>
+            </ul>
+          </li>
+          <% else %>
             <li class="has-dropdown">
               <%= link_to "Curriculums", curriculums_path %>
               <ul class="dropdown">
                 <li><%= link_to "List Curriculums", curriculums_path %></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <%= link_to "Camps", camps_path %>
+              <ul class="dropdown">
+                <li><%= link_to "List Camps", camps_path %></li>
               </ul>
             </li>
           <% end %>

@@ -3,14 +3,14 @@ where they can see their personal information and as well as upcoming
 camps they are assigned to. The exact details of this dashboard content 
 and layout is left to the student developer to decide.  -->
 
-<h3>Welcome back, Instructor <%= current_user.username %></h3>
+<h3>Welcome back, Instructor <%= @userInstructor.proper_name %></h3>
 
 <p>Below is information on your projects and incomplete tasks for those projects:</p>
 
 <table border="0" cellspacing="5" cellpadding="5">
 	<tr valign="top">
 		<td>
-			<h3>Camp Information &nbsp;&nbsp;</h3>
+			<h3>Upcoming Camp Information &nbsp;&nbsp;</h3>
 			<% if @userCamps.nil? || @userCamps.empty? %>
 				<p>There are no camps at this time</p>
 			<% else %>
@@ -19,16 +19,23 @@ and layout is left to the student developer to decide.  -->
 				</div>
 			<% end %>
 		</td>
-		<!-- <td width="50">&nbsp;</td>
+		<td width="100">&nbsp;</td>
 		<td>
-			<h3><span id="task_title">Incomplete Tasks</span>  &nbsp;&nbsp;<span class="add_link"><%#= link_to "[add new task]", new_task_path %></span></h3>
-			<% #if @incomplete_tasks.empty? %>
-				<p>You have no incomplete tasks at this time.</p>
-			<%# else %>
-				<div id="display_tasks">
-					<%#= render :partial => 'partials/task_item', :collection => @incomplete_tasks %>
-				</div>
-			<% #end %>
-		</td> -->
+			<h3><span id="task_title">Your Profile</span>  &nbsp;&nbsp;</h3>
+			<% unless @userInstructor.picture_url.nil? %>
+			    <p><%= image_tag @userInstructor.picture_url %></p>
+			<% end %>
+			<strong>Name:&nbsp;&nbsp;</strong> 
+			  <%= @userInstructor.proper_name %><br /><br />
+			<strong>Username:&nbsp;&nbsp;</strong>
+			<%= current_user.username %><br /><br />
+			<strong>Phone:&nbsp;&nbsp;</strong> 
+			  <%= number_to_phone(@userInstructor.phone) %><br /><br />
+			<strong>Email:&nbsp;&nbsp;</strong> 
+			  <%= mail_to @userInstructor.email, @userInstructor.email, encode: "javascript" %><br /><br />
+			<strong>Biography</strong><br />
+  				<%= @userInstructor.bio.nil? ? "N/A" : @userInstructor.bio %><br /><br />
+			<%= link_to "Edit Profile", edit_instructor_path(@userInstructor), class: "button tiny radius" %>&nbsp;&nbsp;
+		</td>
 	</tr>
 </table>
