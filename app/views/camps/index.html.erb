@@ -1,15 +1,18 @@
+<div class = "transparent">
 <div class="row">
   <div class="small-7 columns">
     <!-- MAIN CONTENT GOES HERE -->
     <%= render :partial => "camps", locals: { status: "Upcoming", camps: @upcoming_camps } %>
     <p>&nbsp;</p>
+    <% if logged_in? %>
     <%= render :partial => "camps", locals: { status: "Past", camps: @past_camps } %>
     <br />
     <%# if can? :update, camp %>
     <%= link_to "Add a new camp", new_camp_path, class: "button tiny radius" %>
     <%# end %>
+    <% end %>
   </div>
-
+  <% if logged_in? %>
   <div class="small-1 columns">
     &nbsp;
   </div>
@@ -18,4 +21,6 @@
     <!-- SIDEBAR CONTENT GOES HERE -->
     <%= render :partial => "inactive_camps" %>
   </div>
+  <% end %>
+</div>
 </div>

@@ -8,7 +8,7 @@
     <th></th>
   </tr>
 
-<% @camps.each do |camp| %>
+<% @userCamps.each do |camp| %>
   <tr>
     <td><%= link_to camp.name, camp_path(camp) %></td>
     <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>

@@ -1,4 +1,4 @@
-<%= simple_nested_form_for(@instructor, html: { class: 'form-horizontal' }) do |f| %>
+<%= simple_nested_form_for(@instructor, html: { :multipart => true, class: 'form-horizontal' }) do |f| %>
    <div class="row">
       <div class="span7">
         <fieldset>
@@ -10,13 +10,14 @@
             <%= f.input :email %>
             <%= f.input :active %>
             <%= f.input :bio, input_html: { rows: 6 } %>
+            <%= f.label :picture %><br />
+            <%= f.file_field :picture %>
         </fieldset>
       </div>
       <div class="span5">
         <legend>User</legend>
           <div id="users">
             <%= f.simple_fields_for :user do |u| %>
-              <%#= u.link_to_remove("x") %>
               <%= u.label :username, "Username" %><br />
               <%= u.text_field :username %>
               <%= u.label :password %><br />
@@ -27,10 +28,6 @@
               <%= u.select :role, User::ROLES, :prompt => "Select ..." %>
             <% end %> 
             <p>
-              <!-- <br /> -->
-<!--               <% if @instructor.user ==nil %>
-              <%= f.link_to_add("Add User", :user, :class => 'button tiny') %>
-              <% end %> -->
             </p>
           </div> 
         </div>

@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
     # set user to new User if not logged in
     user ||= User.new # i.e., a guest user
-    
+
     # set authorizations for different user roles
     if user.role? :admin
       # they get to do it all
@@ -80,11 +80,10 @@ class Ability
     else
       # guests can only read domains covered (plus home pages)
       #guests can see list of camps, view camp details, view instructor details, view location details
-      can :read, Domain
-      # can :read, Camp
-      # can :read, Instructor
-      # can :read, Location
-      can :read, All
+      can :read, Camp
+      can :read, Instructor
+      can :read, Location
+      #can :read, All
     end
   end
     #

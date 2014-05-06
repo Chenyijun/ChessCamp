@@ -1,3 +1,4 @@
+<% if logged_in? %>
 <% unless @instructors.empty? %>
   <!-- <h3>&nbsp;</h3> -->
   <div class="panel clearfix">
@@ -30,4 +31,5 @@
   <div class="panel clearfix">
     <h5>No Students</h5>
   </div>
+<% end %>
 <% end %>

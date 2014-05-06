@@ -7,31 +7,28 @@ and layout is left to the student developer to decide.  -->
 
 <p>Below is information on your projects and incomplete tasks for those projects:</p>
 
-<!-- <table border="0" cellspacing="5" cellpadding="5">
+<table border="0" cellspacing="5" cellpadding="5">
 	<tr valign="top">
 		<td>
-			<h3>Upcoming Camps &nbsp;&nbsp;</h3>
-			<% #if @camps.nil? || @camps.empty? %>
-				<p>You have no upcoming camps at this time</p>
-			<% #else %>
+			<h3>Camp Information &nbsp;&nbsp;</h3>
+			<% if @userCamps.nil? || @userCamps.empty? %>
+				<p>There are no camps at this time</p>
+			<% else %>
 				<div id="display_camps">
-					<p>
-					<span class="smtext"><strong><%#= link_to(camps.name, camp_path(camps)) %></strong></span><br>
-					<span class="smtext"><%#= truncate(project_item.description, length: 100, omission: ' ') %><%#= link_to "...(more)", project_path(project_item) %></span>
-				</p>
+					<%= render :partial => "admin_camp" %>
 				</div>
-			<% #end %>
+			<% end %>
 		</td>
-		<td width="50">&nbsp;</td>
+		<!-- <td width="50">&nbsp;</td>
 		<td>
 			<h3><span id="task_title">Incomplete Tasks</span>  &nbsp;&nbsp;<span class="add_link"><%#= link_to "[add new task]", new_task_path %></span></h3>
 			<% #if @incomplete_tasks.empty? %>
 				<p>You have no incomplete tasks at this time.</p>
-			<% #else %>
+			<%# else %>
 				<div id="display_tasks">
 					<%#= render :partial => 'partials/task_item', :collection => @incomplete_tasks %>
 				</div>
 			<% #end %>
-		</td>
+		</td> -->
 	</tr>
-</table> -->
+</table>

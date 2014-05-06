@@ -7,6 +7,8 @@
       </ul>
       <section class="top-bar-section">
         <ul class="left">
+          <% if logged_in? %>
+            <% if current_user.role == 'admin' %>
           <!-- options for curriculums -->
           <li class="has-dropdown">
             <%= link_to "Curriculums", curriculums_path %>
@@ -27,7 +29,6 @@
 
           <!-- options for instructors -->
           <li class="has-dropdown">
-            <!-- <a href="#">Instructors</a> -->
             <%= link_to "Instructors", instructors_path %>
             <ul class="dropdown">
               <li><%= link_to "List Instructors", instructors_path %></li>
@@ -58,12 +59,38 @@
               <li><%= link_to "Add a Student", new_student_path %></li>
             </ul>
           </li>
-<!--           <li class="has-dropdown">
-            <%= link_to "Users", users_path %>
-            <ul class="dropdown">
-              <li><%= link_to "List Users", users_path %></li>
-              <li><%= link_to "Add an User", new_user_path %></li>
-            </ul> -->
+            <% else %>
+
+            <li class="has-dropdown">
+              <%= link_to "Curriculums", curriculums_path %>
+              <ul class="dropdown">
+                <li><%= link_to "List Curriculums", curriculums_path %></li>
+                <li><%= link_to "Add a Curriculum", new_curriculum_path %></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <%= link_to "Camps", camps_path %>
+              <ul class="dropdown">
+                <li><%= link_to "List Camps", camps_path %></li>
+              </ul>
+            </li>
+            <% end %>
+
+          <% else %>
+            <li class="has-dropdown">
+              <%= link_to "Camps", camps_path %>
+              <ul class="dropdown">
+                <li><%= link_to "List Camps", camps_path %></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <%= link_to "Curriculums", curriculums_path %>
+              <ul class="dropdown">
+                <li><%= link_to "List Curriculums", curriculums_path %></li>
+              </ul>
+            </li>
+          <% end %>
+
           </li>
         </ul>
       </section>

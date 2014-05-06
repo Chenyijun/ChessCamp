@@ -14,7 +14,9 @@
     <td><%= link_to camp.name, camp_path(camp) %></td>
     <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
     <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
+    <% if logged_in? %>
     <td><%= link_to 'Edit', edit_camp_path(camp), class: "button tiny radius" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

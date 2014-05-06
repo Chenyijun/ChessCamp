@@ -36,7 +36,8 @@
 // $total-columns: 12;
 
 // We use these to control various global styles
-// $body-bg: #fff;
+   $body-bg: #fff;
+//url("chessbg.jpg")
 // $body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
@@ -1029,7 +1030,8 @@ $panel-bg: scale-color(#B5E7F5, $lightness: 50%);
 
 // These control the background color for the table and even rows
 // $table-bg: #fff;
-$table-even-row-bg: #FAF2F0;
+$table-even-row-bg: #daf3fa;
+//#FAF2F0
 
 // These control the table cell border style
 $table-border-style: none;
@@ -1123,7 +1125,8 @@ $table-margin-bottom: rem-calc(25);
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #F7EAE6;
+$topbar-bg-color: #ade4f4;
+//#F7EAE6;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1194,10 +1197,10 @@ $topbar-link-bg-hover: #FAF2F0;
 // $include-html-visibility-classes: $include-html-classes;
 
  body{
- 	background-image:url("chessbg.jpg");
- 	background-repeat:no-repeat;
- 	background-position:right bottom;
- 	background-attachment:fixed;
+ 	background-image: url("chess-pieces-1.jpg");
+ 	background-repeat: no-repeat;
+ 	background-position: right bottom;
+ 	background-attachment: fixed;
  }
 
 

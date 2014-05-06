@@ -12,7 +12,7 @@ include on this dashboard and how to display it.  -->
 	<tr valign="top">
 		<td>
 			<h3>Camp Information &nbsp;&nbsp;<span class="add_link"><%= link_to "[add new camp]", new_camp_path %></span></h3>
-			<% if @camps.nil? || @camps.empty? %>
+			<% if @userCamps.nil? || @userCamps.empty? %>
 				<p>There are no camps at this time</p>
 			<% else %>
 				<div id="display_camps">

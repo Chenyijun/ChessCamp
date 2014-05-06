@@ -14,3 +14,23 @@
  *= require_tree .
  *= require jquery.ui.datepicker
  */
+
+/* body{
+ 	background-image:url("chessbg.jpg");
+ 	background-repeat:no-repeat;
+ 	background-position:right bottom;
+ 	background-attachment:fixed;
+ }
+
+ div.transparent{
+   padding: 10px;
+   background: rgb(255, 255, 255); // Fallback 
+   background: rgba(255, 255, 255, 0.75);
+ }*/
+
+ /* body{
+ 	background-image: url("chessbg.jpg") !important;
+ 	background-repeat: no-repeat;
+ 	background-position: right bottom;
+ 	background-attachment: fixed;
+ }*/

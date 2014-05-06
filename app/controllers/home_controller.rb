@@ -1,12 +1,16 @@
 class HomeController < ApplicationController
   def index
-  	@camps = Camp.active.chronological.paginate(:page => params[:page]).per_page(10)
-  	
-    #@students = @camp.students.all.map{|s| s}
+  	@camps = Camp.upcoming.active.chronological.paginate(:page => params[:page]).per_page(10)
+    if current_user && !current_user.instructor.nil?
+      @userCamps = current_user.instructor.camps.paginate(:page => params[:page]).per_page(10)
+    end
+  	# usercamps = current_user.instructor.camps.map{|c| c }.flatten
+  	# @ucamps = usercamps.upcoming.active.chronological.paginate(:page => params[:page]).per_page(10)
   end
 
   def show
-  	@camps = Camp.active.chronological.paginate(:page => params[:page]).per_page(10)
+  	@camps = Camp.upcoming.active.chronological.paginate(:page => params[:page]).per_page(10)
+  	# @usercamps = current_user.instructor.camps.upcoming.active.chronological.paginate(:page => params[:page]).per_page(10)
   	#@instructors = @camp.instructors.alphabetical.to_a
   end
 
