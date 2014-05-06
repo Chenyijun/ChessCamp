@@ -5,7 +5,9 @@
     <%= f.input :first_name, label: "Student First Name" %>
     <%= f.input :last_name, label: "Student Last Name" %>
     <%= f.collection_select :family_id, Family.active.alphabetical, :id, :family_name %>
-    <%= f.input :date_of_birth, label: "Date of Birth", as: :string, :input_html => {:class => "avg datepicker"} %>   
+    <%= f.input :date_of_birth, label: "Date of Birth", as: :string, :input_html => {:class => "datepicker"} %>
+    <%#= f.input :date_of_birth, :as => :string, :input_html => { :class => 'jquery-ui-date'} %>
+    <%#= f.input :date_of_birth, :as => :hidden, :input_html => { :id => 'recorded-at-alt'} %>
     <%= f.input :rating, label: "Student Rating" %>
     <%= f.input :active %>
 

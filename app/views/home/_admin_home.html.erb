@@ -1,0 +1,35 @@
+<!-- An administrator user who logs in is immediately taken to his/her 
+dashboard where they can see key information about camp registrations 
+and instructor assignments. It is left as an exercise to the student 
+developer to determine what information makes the most sense to 
+include on this dashboard and how to display it.  -->
+
+<h3>Welcome back, <%= current_user.username %></h3>
+
+<p>Below is information on camp registrations and instructor assignments:</p>
+
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr valign="top">
+		<td>
+			<h3>Camp Information &nbsp;&nbsp;<span class="add_link"><%= link_to "[add new camp]", new_camp_path %></span></h3>
+			<% if @camps.nil? || @camps.empty? %>
+				<p>There are no camps at this time</p>
+			<% else %>
+				<div id="display_camps">
+					<%= render :partial => "admin_camp" %>
+				</div>
+			<% end %>
+		</td>
+		<!-- <td width="50">&nbsp;</td>
+		<td>
+			<h3><span id="task_title">Incomplete Tasks</span>  &nbsp;&nbsp;<span class="add_link"><%#= link_to "[add new task]", new_task_path %></span></h3>
+			<% #if @incomplete_tasks.empty? %>
+				<p>You have no incomplete tasks at this time.</p>
+			<%# else %>
+				<div id="display_tasks">
+					<%#= render :partial => 'partials/task_item', :collection => @incomplete_tasks %>
+				</div>
+			<% #end %>
+		</td> -->
+	</tr>
+</table>

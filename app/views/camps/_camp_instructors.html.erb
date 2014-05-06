@@ -15,7 +15,7 @@
   </div>
 <% end %>
 
-<% if can? :update, @camp %>
+<% if can? :read, @camp %>
 <div class="panel clearfix">
     <h5>Registrations (<%= "#{@camp.registrations.size}" %>)
    <!--  <h5>Registered Students</h5> -->

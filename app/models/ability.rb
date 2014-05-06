@@ -15,8 +15,15 @@ class Ability
 
       # can see a list of their students
       can :read, Camp do |c|
-      #   reg = registrations.select{|r| r.id == c.id}.map{|r| r.student_id}
-        c.id == user.instructor.camps.registrations.camp_id
+        @camps = user.instructor.camps.map{|c| c.id}.flatten
+        @camps.each do |camp| 
+          c.id == camp
+        end
+      end
+
+      can :read, Student do |s|
+        mystudents = user.instructor.camps.map{|c| c.students.map(&:id)}.flatten
+        mystudents.include?(s.id)
       end
       #can see location details
       #can :read, Location

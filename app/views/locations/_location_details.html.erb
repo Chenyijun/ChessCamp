@@ -5,9 +5,13 @@
 <strong>Address:&nbsp;&nbsp;</strong> <br />
   <%= @location.street_1 %><br />
   <% if @location.street_2.nil? == false %> 
-  	<%= @location.street_2 %> <br/> %>
+  	<%= @location.street_2 %> <br/>
   <% end %>
+  <% if @location.city.nil? %>
+  <%= "#{@location.zip}"%> <br /><br />
+  <% else %>
   <%= "#{@location.city}, #{@location.state}  #{@location.zip}"%> <br /><br />
+  <% end %>
 
 <strong>Map&nbsp;&nbsp;</strong>
 <%= image_tag @location.create_map_link %> <br /> <br />

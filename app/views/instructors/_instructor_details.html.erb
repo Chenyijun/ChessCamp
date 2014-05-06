@@ -2,8 +2,10 @@
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @instructor.proper_name %><br /><br />
 
+<% if @user != nil %>
 <strong>Username:&nbsp;&nbsp;</strong>
 	<%= @user.username %><br /><br />
+<% end %>
 
 <strong>Phone:&nbsp;&nbsp;</strong> 
   <%= number_to_phone(@instructor.phone) %><br /><br />
