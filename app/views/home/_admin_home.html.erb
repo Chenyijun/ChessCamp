@@ -11,7 +11,7 @@ include on this dashboard and how to display it.  -->
 <table border="0" cellspacing="5" cellpadding="5">
 	<tr valign="top">
 		<td>
-			<h3>Camp Information &nbsp;&nbsp;<span class="add_link"><%= link_to "[add new camp]", new_camp_path %></span></h3>
+			<h3>Reports &nbsp;&nbsp;</h3>
 			<% if @userCamps.nil? || @userCamps.empty? %>
 				<p>There are no camps at this time</p>
 			<% else %>
@@ -20,16 +20,18 @@ include on this dashboard and how to display it.  -->
 				</div>
 			<% end %>
 		</td>
-		<!-- <td width="50">&nbsp;</td>
+		<td width="100">&nbsp;</td>
 		<td>
-			<h3><span id="task_title">Incomplete Tasks</span>  &nbsp;&nbsp;<span class="add_link"><%#= link_to "[add new task]", new_task_path %></span></h3>
-			<% #if @incomplete_tasks.empty? %>
-				<p>You have no incomplete tasks at this time.</p>
-			<%# else %>
-				<div id="display_tasks">
-					<%#= render :partial => 'partials/task_item', :collection => @incomplete_tasks %>
-				</div>
-			<% #end %>
-		</td> -->
+			<h3><span id="task_title">Reports</span>  &nbsp;&nbsp;</h3>
+			<%= link_to 'Payment Report', payment_report_path %>
+			<!-- For a given camp, list of all payments received and balances due along with 
+grand totals for each. 
+ 
+2. List of all payments received and balances due for a particular family for a 
+particular year. 
+ 
+3. List of all camps for a given year and the total amount of payments received in 
+a particular year as well as the aggregate balance due for each -->
+		</td>
 	</tr>
 </table>

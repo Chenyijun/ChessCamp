@@ -1,10 +1,17 @@
 class CampsController < ApplicationController
+
+  require 'will_paginate/array'
   before_action :set_camp, only: [:show, :edit, :update, :destroy]
   before_action :check_login, only: [:new, :edit, :update, :destroy]
   authorize_resource 
 
   def index
-    @upcoming_camps = Camp.upcoming.active.chronological.paginate(:page => params[:page]).per_page(10)
+    @upcoming_camps = Camp.upcoming.active.chronological
+    @possible_to_see_upcoming_camps = @upcoming_camps.select{|c| (can? :read, c)}.paginate(:page => params[:page], :per_page => 10)
+
+    @upcoming_camps = @possible_to_see_upcoming_camps
+
+
     @past_camps = Camp.past.chronological.paginate(:page => params[:page]).per_page(10)
     @inactive_camps = Camp.inactive.alphabetical.to_a
   end

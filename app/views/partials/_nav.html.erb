@@ -74,13 +74,14 @@
                 <li><%= link_to "List Camps", camps_path %></li>
               </ul>
             </li>
-            <% end %>
+            
             <li class="has-dropdown">
             <%= link_to "Students", students_path %>
             <ul class="dropdown">
               <li><%= link_to "List Students", students_path %></li>
             </ul>
           </li>
+          <% end %>
           <% else %>
             <li class="has-dropdown">
               <%= link_to "Curriculums", curriculums_path %>

@@ -1,4 +1,3 @@
-<% if logged_in? %>
 <% unless @instructors.empty? %>
   <!-- <h3>&nbsp;</h3> -->
   <div class="panel clearfix">
@@ -15,21 +14,30 @@
     <h5>No Instructors</h5>
   </div>
 <% end %>
-
-<% if can? :read, @camp %>
-<div class="panel clearfix">
-    <h5>Registrations (<%= "#{@camp.registrations.size}" %>)
-   <!--  <h5>Registered Students</h5> -->
-    <ul class="side-nav">
-      <% @students.each do |s| %>
-        <li><%= link_to s.name, student_path(s) %><%= "Student Rating #{s.rating}" %></li>
-      <% end %>
-    </ul>
+<% if logged_in? %>
+  <% if can? :read, @camp %>
+  <div class="panel clearfix">
+      <h5>Registrations (<%= "#{@camp.registrations.size}" %>)
+     <!--  <h5>Registered Students</h5> -->
+      <ul class="side-nav">
+        <% @students.each do |s| %>
+          <li><%= link_to s.name, student_path(s) %><%= "Student Rating #{s.rating}" %></li>
+        <% end %>
+      </ul>
   </div>
 
+  <% else %>
+    <div class="panel clearfix">
+      <h5>No Students</h5>
+    </div>
+  <% end %>
 <% else %>
   <div class="panel clearfix">
-    <h5>No Students</h5>
+      <h5>Pre-registered Students </h5>
+      <ul class="side-nav">
+        <% @students.each do |s| %>
+          <li><%= link_to s.name, student_path(s) %></li>
+        <% end %>
+      </ul>
   </div>
-<% end %>
 <% end %>

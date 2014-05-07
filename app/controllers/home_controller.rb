@@ -1,8 +1,14 @@
 class HomeController < ApplicationController
+  require 'will_paginate/array'
   def index
-  	@camps = Camp.upcoming.active.chronological.paginate(:page => params[:page]).per_page(10)
+  	@activeCamps = Camp.active.chronological
+    @camps = Camp.upcoming.active.chronological.paginate(:page => params[:page]).per_page(10)
+
     if current_user && !current_user.instructor.nil?
-      @userCamps = current_user.instructor.camps.paginate(:page => params[:page]).per_page(10)
+      @userCamps = current_user.instructor.camps
+      @possible_to_see_upcoming_camps = @userCamps.select{|c| (can? :read, c)}.paginate(:page => params[:page], :per_page => 10)
+      @userCamps = @possible_to_see_upcoming_camps
+
       @userInstructor = current_user.instructor
     end
   	# usercamps = current_user.instructor.camps.map{|c| c }.flatten

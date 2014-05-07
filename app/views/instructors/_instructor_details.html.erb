@@ -4,29 +4,37 @@
   <% end %>
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @instructor.proper_name %><br /><br />
+<% if logged_in? %>
+	<% if (current_user.role == 'admin')|| (current_user.instructor_id == @instructor.id) %>
+		<% if @user != nil %>
+		<strong>Username:&nbsp;&nbsp;</strong>
+			<%= @user.username %><br /><br />
+		<% end %>
 
-<% if @user != nil %>
-<strong>Username:&nbsp;&nbsp;</strong>
-	<%= @user.username %><br /><br />
+		<strong>Phone:&nbsp;&nbsp;</strong> 
+		  <%= number_to_phone(@instructor.phone) %><br /><br />
+
+		<strong>Email:&nbsp;&nbsp;</strong> 
+		  <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
+
+		<strong>Role:&nbsp;&nbsp;</strong>
+		<% if  !@instructor.user.nil? %>
+		<%= @instructor.user.role %><br /><br />
+		<% end %>
+
+		<strong>Active?&nbsp;&nbsp;</strong>
+		  <%= @instructor.active ? "Yes" : "No" %><br /><br />
+	  <% end %>
 <% end %>
-
-<strong>Phone:&nbsp;&nbsp;</strong> 
-  <%= number_to_phone(@instructor.phone) %><br /><br />
-
-<strong>Email:&nbsp;&nbsp;</strong> 
-  <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
-
-<strong>Role:&nbsp;&nbsp;</strong>
-<% if  !@instructor.user.nil? %>
-<%= @instructor.user.role %><br /><br />
-<% end %>
-
-<strong>Active?&nbsp;&nbsp;</strong>
-  <%= @instructor.active ? "Yes" : "No" %><br /><br />
 
 <strong>Biography</strong><br />
   <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
 
-
-<%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
-<%= link_to 'Destroy instructor', instructor_path(@instructor), data: { confirm: 'Are you sure you want to permanently remove this instructor from the system?' }, method: :delete, class: "button tiny radius alert" %>
+<% if logged_in? %>
+	<% if (current_user.role == 'admin')|| (current_user.instructor == @instructor.id) %>
+		<%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
+	<% end %>
+	<% if (current_user.role == 'admin') %>
+		<%= link_to 'Destroy instructor', instructor_path(@instructor), data: { confirm: 'Are you sure you want to permanently remove this instructor from the system?' }, method: :delete, class: "button tiny radius alert" %>
+	<% end %>
+<% end %>

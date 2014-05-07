@@ -14,7 +14,11 @@
     <td><%= link_to student.name, student_path(student) %></td>
     <td align="center"><%= student.age %></td>
     <td align="center"><% if student.rating == 0 %><%= "Unrated" %><% else %><%= student.rating %><% end %></td>
-    <td><%= link_to 'Edit', edit_student_path(student), class: "button tiny radius" %></td>
+    <% if logged_in? %>
+      <% if current_user.role == 'admin' %>
+        <td><%= link_to 'Edit', edit_student_path(student), class: "button tiny radius" %></td>
+      <% end %>
+    <% end %>
   </tr>
 <% end %>
 </table>
