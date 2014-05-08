@@ -1,5 +1,9 @@
 ## 67-272: Chess Camp Phase 5 Starter ##
-Made reports for individual camps, families, and overall yearly report
+Made reports for individual camps, families, and overall yearly report.
+
+I could not customize the design very well because the foundation kept overiding my custom css.
+I tried using gmap4rails gem for dynamic google map but even after following all the directions, it wouldn't show up. 
+---------------
 
 This is starter code for the course project in 67-272: Application Design and Development.  This code has basic views and controllers required for phase 3 and it passes all cucumber tests.  In addition, it has all the models created and tested as specified in phase 4.
 

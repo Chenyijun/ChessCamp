@@ -48,6 +48,7 @@ class Ability
       can :read, Curriculum
       can :read, Instructor
       can :read, Location
+      can :read, Student
       #can :read, All
     end
   end

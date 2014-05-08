@@ -25,13 +25,14 @@
             <%= link_to 'Login', login_path %>
           <% end %>
       </div>
+    <div id = "bgimage">
     <div class="row">
       <div class="small-12 columns" id="main_content">
         <%= render :partial => "partials/flash" %>
         <%= yield %>
       </div>
     </div>
-    
+    </div>
     <footer>
       <div class="row">
         <div class="small-12 columns" id="footer">
