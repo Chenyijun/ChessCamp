@@ -9,7 +9,7 @@ class ReportController < ApplicationController
 
 	def family_report
 		@family = Family.find(params[:id])
-		@students = @family.students.active.map{|s| s}
+		@students = @family.students.alphabetical.active.map{|s| s}
 		@registrations = @family.students.active.map{|s| s.registrations}
 	end
 

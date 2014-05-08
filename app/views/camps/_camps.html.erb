@@ -17,6 +17,7 @@
     <% if logged_in? %>
       <% if current_user.role == 'admin' %>
     <td><%= link_to 'Edit', edit_camp_path(camp), class: "button tiny radius" %></td>
+    <td><%= link_to 'Report', helper_path(camp), class: "button tiny radius" %></td>
       <% end %>
     <% end %>
   </tr>
