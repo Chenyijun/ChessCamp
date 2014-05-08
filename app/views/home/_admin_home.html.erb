@@ -4,14 +4,15 @@ and instructor assignments. It is left as an exercise to the student
 developer to determine what information makes the most sense to 
 include on this dashboard and how to display it.  -->
 
-<h3>Welcome back, <%= current_user.username %></h3>
+<h3>Welcome back, <%if current_user.instructor.nil?%> <%= current_user.username %> <% else%> 
+	<%=current_user.instructor.first_name %><%end%></h3>
 
 <p>Below are information on camp registrations and instructor assignments:</p>
 
 <table border="0" cellspacing="5" cellpadding="5">
 	<tr valign="top">
 		<td>
-			<h3>Reports &nbsp;&nbsp;</h3>
+			<h3>Your Upcoming Camps &nbsp;&nbsp;</h3>
 			<% if @userCamps.nil? || @userCamps.empty? %>
 				<p>There are no camps at this time</p>
 			<% else %>
@@ -24,7 +25,7 @@ include on this dashboard and how to display it.  -->
 		
 		<td>
 			<div class="panel clearfix">
-			<h3><span id="task_title">Reports</span>  &nbsp;&nbsp;</h3>
+			<h3><span id="task_title">Yearly Reports</span>  &nbsp;&nbsp;</h3>
 			<%= link_to 'Payment Report 2013', payment_report13_path %> <br />
 			<%= link_to 'Payment Report 2014', payment_report_path %> <br />
 			<%= link_to 'Payment Report 2015', payment_report15_path %> <br />

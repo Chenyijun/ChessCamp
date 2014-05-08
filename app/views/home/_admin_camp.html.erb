@@ -17,7 +17,14 @@
       <% camp.instructors.each do |i| %>
       <%= link_to i.name, instructor_path(i) %><br />
       <% end %> </td>
-    <td></td>
+    <td><% if current_user.role == 'admin' %>
+      <%= link_to 'Edit  ', edit_camp_path(camp), class: "button tiny radius" %>
+        <%end%></td>
+    <td>
+        <% if current_user.role == 'admin' %>
+        <%= link_to 'Report', helper_path(camp), class: "button tiny radius" %>
+        <% end %>
+    </td>
   </tr>
 <% end %>
 </table>

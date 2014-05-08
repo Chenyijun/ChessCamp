@@ -6,4 +6,15 @@ class ReportController < ApplicationController
 	    @deposit = @registrations.select{|r| r.payment_status == "deposit"}
 	    @price = @camp.cost
 	end
+
+	def family_report
+		@family = Family.find(params[:id])
+		@students = @family.students.active.map{|s| s}
+		@registrations = @family.students.active.map{|s| s.registrations}
+	end
+
+	def yearly
+		 @activeCamps = Camp.active.chronological
+    	 @y14 = @activeCamps.select{|c| c.start_date.year==2014}
+	end
 end

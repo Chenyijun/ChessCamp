@@ -34,3 +34,16 @@
  	background-position: right bottom;
  	background-attachment: fixed;
  }*/
+
+ .alignleft {
+ 	padding-left:50px;
+	float: left;
+}
+.alignright {
+	padding-right:50px;
+	float: right;
+}
+#login{
+	background-color:#E3F4FF;
+	padding: 5px;
+}

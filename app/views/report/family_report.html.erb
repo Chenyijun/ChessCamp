@@ -1,0 +1,18 @@
+<h3> <%= "#{@family.family_name} Family Payment Report" %> </h3>
+<% paid = 0 %>
+<% cost = 0 %>
+<h4> Students </h4>
+<% @students.each do |s| %>
+<h5><%= s.name %> <br /> </h5>
+	<% s.registrations.each do |r| %>
+		&nbsp;&nbsp;&nbsp;<%= "        #{r.camp.name}($#{r.camp.cost}) - #{r.payment_status}" %><br /><br />
+		<% cost += r.camp.cost %>
+		<% if r.payment_status == "full" %>
+			<% paid+= r.camp.cost %>
+		<%end %>
+	<% end %>
+<% end %>
+<br /> <br />
+<p> -------------------------------------- </p>
+<%= "Payment Recieved: $#{paid}" %> <br /> <br />
+<%= "Balance Due: $#{cost-paid}" %>

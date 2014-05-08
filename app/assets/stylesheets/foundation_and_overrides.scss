@@ -1131,7 +1131,7 @@ $topbar-bg-color: #ade4f4;
 
 // Height and margin
 $topbar-height: 50px;
-$topbar-margin-bottom: 20px;
+$topbar-margin-bottom: 0px;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: normal;
@@ -1267,6 +1267,12 @@ a img {
   background-color: #FAF2F0;
   border-color: #F7EAE6;
 
+}
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
 }
 
 select.date { width: 95px; }
