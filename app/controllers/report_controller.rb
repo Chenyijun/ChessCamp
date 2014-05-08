@@ -14,7 +14,10 @@ class ReportController < ApplicationController
 	end
 
 	def yearly
+		 @year = params[:year]
 		 @activeCamps = Camp.active.chronological
     	 @y14 = @activeCamps.select{|c| c.start_date.year==2014}
+    	 @y13 = @activeCamps.select{|c| c.start_date.year==2013}
+    	 @y15 = @activeCamps.select{|c| c.start_date.year==2015}
 	end
 end

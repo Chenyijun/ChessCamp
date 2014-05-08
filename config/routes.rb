@@ -23,6 +23,7 @@ ChessCamp::Application.routes.draw do
   resources :families
   resources :students
   # semi-static routes
+  get 'report/:year', to: 'report#yearly', as: :yearly
   get 'report/:id', to: 'report#generate', as: :helper
   get 'report/family/:id', to: 'report#family_report', as: :family_report
   get 'home', to: 'home#index', as: :home

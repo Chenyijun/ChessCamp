@@ -26,9 +26,9 @@ include on this dashboard and how to display it.  -->
 		<td>
 			<div class="panel clearfix">
 			<h3><span id="task_title">Yearly Reports</span>  &nbsp;&nbsp;</h3>
-			<%= link_to 'Payment Report 2013', payment_report13_path %> <br />
-			<%= link_to 'Payment Report 2014', payment_report_path %> <br />
-			<%= link_to 'Payment Report 2015', payment_report15_path %> <br />
+			<%= link_to 'Payment Report 2013', yearly_path(year: "2013") %> <br />
+			<%= link_to 'Payment Report 2014', yearly_path(year: "2014") %> <br />
+			<%= link_to 'Payment Report 2015', yearly_path(year: "2015") %> <br />
 
 			<!-- For a given camp, list of all payments received and balances due along with 
 grand totals for each. 
