@@ -1,7 +1,7 @@
 class CampsController < ApplicationController
 
   require 'will_paginate/array'
-  before_action :set_camp, only: [:show, :edit, :update, :destroy]
+  before_action :set_camp, only: [:show, :edit, :update, :destroy, :camp_payment]
   before_action :check_login, only: [:new, :edit, :update, :destroy]
   authorize_resource 
 
@@ -50,6 +50,7 @@ class CampsController < ApplicationController
     @camp.destroy
     redirect_to camps_url, notice: "#{@camp.name} camp on #{@camp.start_date.strftime('%m/%d/%y')} was removed from the system."
   end
+
 
   private
     def set_camp

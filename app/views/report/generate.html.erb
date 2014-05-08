@@ -1,0 +1,10 @@
+<h3> <%= "#{@camp.name} Payment Report" %> </h3>
+<h4> <%= "Students paid: #{@paid.size}" %> </h4>
+<h4> <%= "Students deposited only: #{@deposit.size}" %> </h4>
+<p> ------------------ </p>
+<h4> <%= "Amount Recieved: $ #{recieved = @paid.size*@price}" %></h4>
+<h4> <%= "Account Balance: $ #{(@registrations.size*@price) - recieved}" %> </h4>
+<p> ------------------ </p>
+<% @registrations.each do |r| %>
+	<%= "#{r.student.name} : #{r.payment_status}" %><br /><br />
+<% end %>

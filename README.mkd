@@ -1,4 +1,5 @@
 ## 67-272: Chess Camp Phase 5 Starter ##
+Made reports for individual camps and overall yearly report
 
 This is starter code for the course project in 67-272: Application Design and Development.  This code has basic views and controllers required for phase 3 and it passes all cucumber tests.  In addition, it has all the models created and tested as specified in phase 4.
 
