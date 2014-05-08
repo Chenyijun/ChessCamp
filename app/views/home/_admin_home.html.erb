@@ -6,7 +6,7 @@ include on this dashboard and how to display it.  -->
 
 <h3>Welcome back, <%= current_user.username %></h3>
 
-<p>Below is information on camp registrations and instructor assignments:</p>
+<p>Below are information on camp registrations and instructor assignments:</p>
 
 <table border="0" cellspacing="5" cellpadding="5">
 	<tr valign="top">
@@ -23,7 +23,10 @@ include on this dashboard and how to display it.  -->
 		<td width="100">&nbsp;</td>
 		<td>
 			<h3><span id="task_title">Reports</span>  &nbsp;&nbsp;</h3>
-			<%= link_to 'Payment Report', payment_report_path %>
+			<%= link_to 'Payment Report 2013', payment_report13_path %> <br />
+			<%= link_to 'Payment Report 2014', payment_report_path %> <br />
+			<%= link_to 'Payment Report 2015', payment_report15_path %> <br />
+
 			<!-- For a given camp, list of all payments received and balances due along with 
 grand totals for each. 
  

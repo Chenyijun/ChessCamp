@@ -11,7 +11,7 @@
 
 <% @active_locations.each do |loc| %>
   <tr>
-    <td><%= link_to loc.name, location_path(loc) %></td>
+    <td><%= link_to loc.name, location_path(loc),'data-no-turbolink' => true %></td>
     <td align="center"><%= loc.street_1 %></td>
     <td align="center"><%= loc.max_capacity %></td>
     <td><%= link_to 'Edit', edit_location_path(loc), class: "button tiny radius" %></td>

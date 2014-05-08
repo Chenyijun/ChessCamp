@@ -1,0 +1,14 @@
+<!-- List of all camps for a given year and the total amount of payments received in 
+a particular year as well as the aggregate balance due for each.  -->
+<h3>2014 Camp Payment Information</h3>
+<% balance = 0 %>
+<% @y14.each do |c| %>
+  <h5><%=" #{c.name}" %> </h5>
+  <%= "Students Paid: #{paid = (c.registrations.select{|i| i.payment_status == "full"}.size)}" %> <br />
+  <%= "Students Deposited: #{deposit = (c.registrations.select{|i| i.payment_status == "deposit"}.size)}"%><br /><br />
+  
+  <%= "Amount recieved: $ #{recieved = (paid*c.cost) }" %> <br />
+  <%= "Balance due: $ #{balance += ((c.registrations.size*c.cost).to_i - recieved.to_i)}" %>
+  <p> --------------------- </p>
+ <% end %>
+ <h4><%= "Balance: $#{balance}" %></h4>

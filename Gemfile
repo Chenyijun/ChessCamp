@@ -60,6 +60,8 @@ gem 'nested_form'
 
 gem 'chronic'
 
+gem 'gmaps4rails'
+
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets'
